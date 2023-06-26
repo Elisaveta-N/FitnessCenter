@@ -1,0 +1,14 @@
+_11:38:02.387 [Test worker] INFO  org.example.service.SchedulerService – Read all schedulers
+d11:38:02.493 [Test worker] INFO  org.example.service.SchedulerService – Read scheduler by id = 1
+\11:38:02.499 [Test worker] INFO  org.example.service.SchedulerService – Update scheduler
+Z11:38:02.506 [Test worker] INFO  org.example.service.SchedulerService – Save scheduler
+f11:38:02.510 [Test worker] INFO  org.example.service.SchedulerService – Delete scheduler by id = 1
+	
+\11:38:02.572 [Test worker] INFO  org.example.service.UserService – Update user by id = 1
+	^11:38:02.578 [Test worker] INFO  org.example.service.UserService – Create user login: user
+n11:38:02.617 [Test worker] INFO  org.example.service.WorkoutService – Find workouts by name = Теннис
+`11:38:02.620 [Test worker] INFO  org.example.service.WorkoutService – Read workout by id = 1
+b11:38:02.623 [Test worker] INFO  org.example.service.WorkoutService – Update workout by id = 1
+j11:38:02.629 [Test worker] INFO  org.example.service.WorkoutService – Find workouts by name = Тенн
+a11:38:02.632 [Test worker] INFO  org.example.service.WorkoutService – Workout created, name: 
+b11:38:02.634 [Test worker] INFO  org.example.service.WorkoutService – Delete workout by id = 1

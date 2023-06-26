@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- Bootstrap core CSS  -->
+    <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <style>
+        th {
+            text-align: middle;
+        }
+
+        div.mb140 {
+            margin-bottom: 140px;
+        }
+
+        div.mt80 {
+            margin-top: 80px;
+        }
+        .btn1{
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Responsive navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container px-lg-5"> <a class="btn1" href="#! " role="button "><i class="fa fa-heartbeat fa-4x" aria-hidden="true" ></i></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link " aria-current="page" th:href="@{/}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/logout}">Logout</a></li>
+                    <li th:if="${admin}" class="nav-item"><a class="nav-link active" th:href="@{/admin_scheduler}">Редактировать расписание</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Responsive navbar-->
+    <!-- Main Container -->
+    <div class="container mb140 mt80">
+        <div class="table-responsive px-md-5">
+            <table class="table table-striped px-md-5">
+                <thead>
+                    <tr>
+                        <th scope="col">День</th>
+                        <th scope="col">Время</th>
+                        <th scope="col">Занятие</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <form action="#" th:action="@{/admin_scheduler}" method="post">
+                        <tr th:each="scheduler, itemStat : ${schedulers}">
+                            <td class="align-middle">[[${scheduler.day}]]</td>
+                            <td class="align-middle">[[${scheduler.time}]]</td>
+                            <td class="align-middle">[[${scheduler.workout.name}]]</td>
+                            <td class="align-middle"> <a th:href="@{/admin_scheduler/{id}(id=${scheduler.id})}" class="btn btn-outline-danger w-50">Remove</a> </td>
+                        </tr>
+                    </form>
+                    <form action="#" th:action="@{/admin_scheduler}" method="post">
+                        <tr>
+                            <td class="align-middle">
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm" th:object="${S}" th:field="*{day}">
+                                    <option value="Понедельник" selected>День недели</option>
+                                    <option value="Понедельник">Понедельник</option>
+                                    <option value="Вторник">Вторник</option>
+                                    <option value="Среда">Среда</option>
+                                    <option value="Четверг">Четверг</option>
+                                    <option value="Пятница">Пятница</option>
+                                </select>
+                            </td>
+                            <td class="align-middle">
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" th:object="${S}" th:field="*{time}">
+                                    <option value="08:00" selected>Время</option>
+                                    <option value="08:00">08:00</option>
+                                    <option value="10:00">10:00</option>
+                                    <option value="12:00">12:00</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="16:00">16:00</option>
+                                    <option value="18:00">18:00</option>
+                                    <option value="20:00">20:00</option>
+                                </select>
+                            </td>
+                            <td class="align-middle">
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm" th:object="${W}" th:field="*{name}">
+                                    <option th:value="Бег" selected>Занятие</option>
+                                    <p th:each="workout : ${workouts}">
+                                        <option th:value="${workout.name}">[[${workout.name}]]</option>
+                                    </p>
+                                </select>
+                            </td>
+                            <td class="align-middle">
+                                <button class="btn btn-outline-success  w-50" onClick='submit();'>Add</button>
+                            </td>
+                        </tr>
+                    </form>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Main Container -->
+    <p></p>
+    <!-- Footer -->
+    <footer class="bg-primary text-center text-white fixed-bottom ">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0 ">
+            <!-- Section: Social media -->
+            <section class="mb-4 ">
+                <!-- Facebook --><a class="btn btn-outline-light btn-floating m-1 " href="#! " role="button "><i class="fab fa-facebook-f "></i></a>
+                <!-- Twitter --><a class="btn btn-outline-light btn-floating m-1 " href="#! " role="button "><i class="fab fa-twitter "></i></a>
+                <!-- Google --><a class="btn btn-outline-light btn-floating m-1 " href="#! " role="button "><i class="fab fa-google "></i></a>
+                <!-- Instagram --><a class="btn btn-outline-light btn-floating m-1 " href="#! " role="button "><i class="fab fa-instagram "></i></a>
+                <!-- Linkedin --><a class="btn btn-outline-light btn-floating m-1 " href="#! " role="button "><i class="fab fa-linkedin-in "></i></a>
+                <!-- Github --><a class="btn btn-outline-light btn-floating m-1 " href="#! " role="button "><i class="fab fa-github "></i></a> </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+        <!-- Copyright -->
+        <div class="text-center p-3 " style="background-color: rgba(0, 0, 0, 0.2); "> © 2023 Copyright: <a class="text-white " href="mailto:liza.nickonova@mail.ru ">liza.nickonova@mail.ru</a> </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+    <script src="../static/bootstrap/js/bootstrap.bundle.min.js " th:href="@{/bootstrap/js/bootstrap.bundle.min.js} " /> </body>
+
+</html>

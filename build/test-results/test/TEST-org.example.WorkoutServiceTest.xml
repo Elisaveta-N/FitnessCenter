@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.WorkoutServiceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-06-18T08:38:02" hostname="SER-SPARENB01" time="0.054">
+  <properties/>
+  <testcase name="findByNameTest()" classname="org.example.WorkoutServiceTest" time="0.037"/>
+  <testcase name="readTest()" classname="org.example.WorkoutServiceTest" time="0.003"/>
+  <testcase name="updateTest()" classname="org.example.WorkoutServiceTest" time="0.002"/>
+  <testcase name="findAllTest()" classname="org.example.WorkoutServiceTest" time="0.003"/>
+  <testcase name="findWorkoutsByName()" classname="org.example.WorkoutServiceTest" time="0.003"/>
+  <testcase name="createTest()" classname="org.example.WorkoutServiceTest" time="0.002"/>
+  <testcase name="deleteTest()" classname="org.example.WorkoutServiceTest" time="0.002"/>
+  <system-out><![CDATA[11:38:02.617 [Test worker] INFO  org.example.service.WorkoutService – Find workouts by name = Теннис
+11:38:02.620 [Test worker] INFO  org.example.service.WorkoutService – Read workout by id = 1
+11:38:02.623 [Test worker] INFO  org.example.service.WorkoutService – Update workout by id = 1
+11:38:02.629 [Test worker] INFO  org.example.service.WorkoutService – Find workouts by name = Тенн
+11:38:02.632 [Test worker] INFO  org.example.service.WorkoutService – Workout created, name: 
+11:38:02.634 [Test worker] INFO  org.example.service.WorkoutService – Delete workout by id = 1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

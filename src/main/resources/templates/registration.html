@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация новых пользователей</title>
+    <!-- Bootstrap core CSS  -->
+    <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <style>
+        div.mb140 {
+            margin-bottom: 140px;
+        }
+
+        div.mt80 {
+            margin-top: 80px;
+        }
+        <style>
+        .btn1{
+            color: white;
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+    <!-- Responsive navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container px-lg-5"> <a class="btn1" href="#! " role="button "><i class="fa fa-heartbeat fa-4x" aria-hidden="true" ></i></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" aria-current="page" th:href="@{/}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" th:href="@{/registration}">Регистрация</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Responsive navbar-->
+    <p></p>
+    <!-- Main Container -->
+    <div class="mb140">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-lg-12 col-xl-11">
+                <div class="card text-black" style="border-radius: 25px;">
+                    <div class="card-body p-md-5">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                                <p class="text-center h3 fw-bold mb-3 mx-1 mx-md-4 mt-3">Регистрация</p>
+                                <form class="mx-1 mx-md-4">
+                                    <div class="d-flex flex-row align-items-center mb-3"> <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0"><span th:if="${loginError}" th:utext="${loginError}" style="color:red">></span>
+                                            <input type="text" name="login" id="login" class="form-control" />
+                                            <label class="form-label" for="login">login</label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-3"> <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0"><span th:if="${emptyError}" th:utext="${emptyError}" style="color:red">></span>
+                                            <input type="text" name="firstName" id="firstName" class="form-control" />
+                                            <label class="form-label" for="firstName">Имя</label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-3"> <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0"><span th:if="${emptyError}" th:utext="${emptyError}" style="color:red">></span>
+                                            <input type="text" name="lastName" id="lastName" class="form-control" />
+                                            <label class="form-label" for="lastName">Фамилия</label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-3"> <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0"> <span th:if="${passwordError}" th:utext="${passwordError}" style="color:red">></span>
+                                            <input type="password" name="password" id="password" class="form-control" />
+                                            <label class="form-label" for="password">Пароль</label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-3"> <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="password" class="form-control" name="password2" id="password2" />
+                                            <label class="form-label" for="password2">Повторите пароль</label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                        <form action="test_registry">
+                                            <button class="btn btn-primary btn-lg" type="submit" formmethod="post">Зарегистироваться</button>
+                                        </form>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2"> <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" class="img-fluid" alt="Sample image"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main Container -->
+    <p></p>
+    <!-- Footer -->
+    <footer class="bg-primary text-center text-white fixed-bottom">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0 ">
+            <!-- Section: Social media -->
+            <section class="mb-4 ">
+                <!-- Facebook --><a class="btn btn-outline-light btn-floating m-1 " href="#! " role="button "><i class="fab fa-facebook-f "></i></a>
+                <!-- Twitter --><a class="btn btn-outline-light btn-floating m-1 " href="#! " role="button "><i class="fab fa-twitter "></i></a>
+                <!-- Google --><a class="btn btn-outline-light btn-floating m-1 " href="#! " role="button "><i class="fab fa-google "></i></a>
+                <!-- Instagram --><a class="btn btn-outline-light btn-floating m-1 " href="#! " role="button "><i class="fab fa-instagram "></i></a>
+                <!-- Linkedin --><a class="btn btn-outline-light btn-floating m-1 " href="#! " role="button "><i class="fab fa-linkedin-in "></i></a>
+                <!-- Github --><a class="btn btn-outline-light btn-floating m-1 " href="#! " role="button "><i class="fab fa-github "></i></a> </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+        <!-- Copyright -->
+        <div class="text-center p-3 " style="background-color: rgba(0, 0, 0, 0.2); "> © 2023 Copyright: <a class="text-white " href="mailto:elizaveta@mail.ru ">elizaveta@mail.ru</a> </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+    <script src="../static/bootstrap/js/bootstrap.bundle.min.js " th:href="@{/bootstrap/js/bootstrap.bundle.min.js} " /> </body>
+
+</html>

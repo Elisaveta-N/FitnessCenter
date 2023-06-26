@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- Bootstrap core CSS  -->
+    <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body>
+    <style>
+        .btn{
+            color: white;
+        }
+    </style>
+    <!-- Responsive navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container px-lg-5"> <a class="btn" href="#! " role="button "><i class="fa fa-heartbeat fa-4x" aria-hidden="true" ></i></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" aria-current="page" th:href="@{/}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/logout}">Logout</a></li>
+                    <li class="nav-item"><a class="nav-link active" th:href="@{/user_scheduler}">Мои тренировки</a></li>
+                    <li th:if="${admin}" class="nav-item"><a class="nav-link" th:href="@{/admin_scheduler}">Редактировать расписание</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Responsive navbar-->
+    <p></p>
+    <!-- Main Container -->
+    <div class="container">
+        <div class="row">
+            <div class="col" th:each="lst, dayStat : ${keys}">
+                <form action="#" th:action="@{/user_scheduler}" method="post" th:object="${__${lst}__}">
+                    <div class="card">
+                        <h5 class="card-header">[[${labels[__${dayStat.index}__]}]]</h5>
+                        <div class="card-body" th:each="sh, itemStat : *{schedulerexs}">
+                            <input th:field="*{schedulerexs[__${itemStat.index}__].id}" hidden />
+                            <input th:field="*{schedulerexs[__${itemStat.index}__].day}" hidden />
+                            <input th:field="*{schedulerexs[__${itemStat.index}__].time}" hidden />
+                            <input th:field="*{schedulerexs[__${itemStat.index}__].workoutname}" hidden />
+                            <h5 class="card-title">[[${sh.workoutname}]]</h5>
+                            <div class=" form-check form-switch">
+                                <p class="d-inline">[[${sh.time}]]</p>
+                                <input onChange='submit();' class="d-inline form-check-input" type="checkbox" role="switch" th:checked="${sh.checked}" th:field="*{schedulerexs[__${itemStat.index}__].checked}"> </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Main Container -->
+    <p></p>
+    <!-- Footer -->
+    <footer class="bg-primary text-center text-white fixed-bottom ">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0 ">
+            <!-- Section: Social media -->
+            <section class="mb-4 ">
+                <!-- Facebook --><a class="btn btn-outline-light btn-floating m-1 " href="#! " role="button "><i class="fab fa-facebook-f "></i></a>
+                <!-- Twitter --><a class="btn btn-outline-light btn-floating m-1 " href="#! " role="button "><i class="fab fa-twitter "></i></a>
+                <!-- Google --><a class="btn btn-outline-light btn-floating m-1 " href="#! " role="button "><i class="fab fa-google "></i></a>
+                <!-- Instagram --><a class="btn btn-outline-light btn-floating m-1 " href="#! " role="button "><i class="fab fa-instagram "></i></a>
+                <!-- Linkedin --><a class="btn btn-outline-light btn-floating m-1 " href="#! " role="button "><i class="fab fa-linkedin-in "></i></a>
+                <!-- Github --><a class="btn btn-outline-light btn-floating m-1 " href="#! " role="button "><i class="fab fa-github "></i></a> </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+        <!-- Copyright -->
+        <div class="text-center p-3 " style="background-color: rgba(0, 0, 0, 0.2); "> © 2023 Copyright: <a class="text-white " href="mailto:liza.nickonova@mail.ru ">liza.nickonova@mail.ru</a> </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+    <script src="../static/bootstrap/js/bootstrap.bundle.min.js " th:href="@{/bootstrap/js/bootstrap.bundle.min.js} " /> </body>
+
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.SchedulerServiceTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-06-18T08:38:01" hostname="SER-SPARENB01" time="1.051">
+  <properties/>
+  <testcase name="readAllTest()" classname="org.example.SchedulerServiceTest" time="1.029"/>
+  <testcase name="readTest()" classname="org.example.SchedulerServiceTest" time="0.007"/>
+  <testcase name="updateTest()" classname="org.example.SchedulerServiceTest" time="0.002"/>
+  <testcase name="findByIdTest()" classname="org.example.SchedulerServiceTest" time="0.004"/>
+  <testcase name="createTest()" classname="org.example.SchedulerServiceTest" time="0.004"/>
+  <testcase name="deleteTest()" classname="org.example.SchedulerServiceTest" time="0.002"/>
+  <system-out><![CDATA[11:38:02.387 [Test worker] INFO  org.example.service.SchedulerService – Read all schedulers
+11:38:02.493 [Test worker] INFO  org.example.service.SchedulerService – Read scheduler by id = 1
+11:38:02.499 [Test worker] INFO  org.example.service.SchedulerService – Update scheduler
+11:38:02.506 [Test worker] INFO  org.example.service.SchedulerService – Save scheduler
+11:38:02.510 [Test worker] INFO  org.example.service.SchedulerService – Delete scheduler by id = 1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
